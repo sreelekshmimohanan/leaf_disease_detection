@@ -1,0 +1,229 @@
+{% load static %}
+
+{% block content %}
+{% include 'header.html' %}
+<header class="slider-main">
+   <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel">
+       <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+       </ol>
+       <div class="carousel-inner" role="listbox">
+          <!-- Slide One - Set the background image for this slide in the line below -->
+          <div class="carousel-item active" style="background-image: url({% static 'images/slider-01.jpg' %})">
+             <div class="carousel-caption d-none d-md-block">
+                <h3>Welcome to N & LW Lawn Care</h3>
+                <p>A Great Theme For Garden Lawn Care</p>
+             </div>
+          </div>
+          <!-- Slide Two - Set the background image for this slide in the line below -->
+          <div class="carousel-item" style="background-image: url({% static 'images/slider-02.jpg' %})">
+             <div class="carousel-caption d-none d-md-block">
+                <h3>Beautiful Garden</h3>
+                <p>A Great Theme For Garden Lawn Care</p>
+             </div>
+          </div>
+          <!-- Slide Three - Set the background image for this slide in the line below -->
+          <div class="carousel-item" style="background-image: url({% static 'images/slider-03.jpg' %})">
+             <div class="carousel-caption d-none d-md-block">
+                <h3>Welcome to N & LW Lawn Care</h3>
+                <p>A Great Theme For Garden Lawn Care</p>
+             </div>
+          </div>
+       </div>
+       <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+           <span class="sr-only">Previous</span>
+       </a>
+       <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+           <span class="carousel-control-next-icon" aria-hidden="true"></span>
+           <span class="sr-only">Next</span>
+       </a>
+   </div>
+</header>
+
+
+    <!-- Page Content -->
+    <div class="container">
+        <div class="services-bar">
+            <h1 class="my-4">Black Pepper </h1>
+            <!-- Services Section -->
+            <div class="row">
+               <div class="col-lg-4 mb-4">
+                  <div class="card h-100">
+                     <h4 class="card-header">Piper Nigrum</h4>
+                     <div class="card-img">
+                        <img class="img-fluid" src="{% static 'images/services-img-01.jpg' %}" alt="" />
+                     </div>
+                     <div class="card-body">
+                        <p class="card-text">It seems you might be referring to "Piper nigrum," which is the botanical name for black pepper. Piper nigrum is a species of flowering vine in the family Piperaceae, native to South India.</p>
+                     </div>
+                     
+                  </div>
+               </div>
+               <div class="col-lg-4 mb-4">
+                  <div class="card h-100">
+                     <h4 class="card-header">King of Species</h4>
+                     <div class="card-img">
+                        <img class="img-fluid" src="{% static 'images/services-img-02.jpg' %}" alt="" />
+                     </div>
+                     <div class="card-body">
+                        <p class="card-text">"King of spices" is a common epithet used to describe black pepper due to its widespread use, versatility, and historical significance in the culinary world. </p>
+                     </div>
+                     
+                  </div>
+               </div>
+               <div class="col-lg-4 mb-4">
+                  <div class="card h-100">
+                     <h4 class="card-header">Black Gold</h4>
+                     <div class="card-img">
+                        <img class="img-fluid" src="{% static 'images/services-img-03.jpg' %}" alt="" />
+                     </div>
+                     <div class="card-body">
+                        <p class="card-text">Black pepper (Piper nigrum) is a flowering vine in the family Piperaceae, cultivated for its fruit, which is usually dried and used as a spice and seasoning.</p>
+                     </div>
+                     
+                  </div>
+               </div>
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- About Section -->
+        <div class="about-main">
+            <div class="row">
+               <div class="col-lg-6">
+                  <h2>Welcome to Black Pepper</h2>
+                  <p>Black pepper, also known as the king of spices has a load of health benefits and a major benefit of consuming pepper is that it aids in weight loss. It is also said to be good for digestion and prevents cancer by detoxifying the body. When this spice is added to the food, it makes your food taste better and spicier.</p>
+                  <h5>Some facts about black pepper</h5>
+                  <ul>
+                     <li>Helps in losing weight.</li>
+                     <li>Detoxifies your body.</li>
+                     <li>Prevents cancer.</li>
+                     <li>Cleanses your intestines and stomach.</li>
+                     <li>It consists of potassium that helps in regulating heart rate and high blood pressure.</li>
+                     <li>Helps in producing red blood cells.</li>
+                     <li>Rich in vitamin B and produces calcium.</li>
+                     <li>constipation.</li> 
+                     <li>Prevents skin deformation & wrinkles. </li>
+                       
+                  </ul>
+               </div>
+               <div class="col-lg-6">
+                  <img class="img-fluid rounded" src="{% static 'images/about-img.jpg' %}" alt="" />
+               </div>
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- Portfolio Section -->
+          <!--<div class="portfolio-main">
+            <h2>Our Portfolio</h2>
+            <div class="row">
+               <div class="col-lg-4 col-sm-6 portfolio-item">
+                  <div class="card h-100">
+                     <div class="card-img">
+                        <a href="#">
+                           <img class="card-img-top" src="{% static 'images/portfolio-img-01.jpg' %}" alt="" />
+                           <div class="overlay"><i class="fas fa-arrows-alt"></i></div>
+                        </a>
+                     </div>
+                     <div class="card-body">
+                        <h4 class="card-title">
+                           <a href="#">Lawn & garden care</a>
+                        </h4>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-lg-4 col-sm-6 portfolio-item">
+                  <div class="card h-100">
+                     <div class="card-img">
+                        <a href="#">
+                           <img class="card-img-top" src="{% static 'images/portfolio-img-02.jpg' %}" alt="" />
+                           <div class="overlay"><i class="fas fa-arrows-alt"></i></div>
+                        </a>
+                     </div>
+                     <div class="card-body">
+                        <h4 class="card-title">
+                           <a href="#">Lawn renovation</a>
+                        </h4>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-lg-4 col-sm-6 portfolio-item">
+                  <div class="card h-100">
+                     <div class="card-img">
+                        <a href="#">
+                           <img class="card-img-top" src="{% static 'images/portfolio-img-03.jpg' %}" alt="" />
+                           <div class="overlay"><i class="fas fa-arrows-alt"></i></div>
+                        </a>
+                     </div>
+                     <div class="card-body">
+                        <h4 class="card-title">
+                           <a href="#">Tree planting</a>
+                        </h4>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-lg-4 col-sm-6 portfolio-item">
+                  <div class="card h-100">
+                     <div class="card-img">
+                        <a href="#">
+                           <img class="card-img-top" src="{% static 'images/portfolio-img-04.jpg' %}" alt="" />
+                           <div class="overlay"><i class="fas fa-arrows-alt"></i></div>
+                        </a>
+                     </div>
+                     <div class="card-body">
+                        <h4 class="card-title">
+                           <a href="#">Water Baganig</a>
+                        </h4>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-lg-4 col-sm-6 portfolio-item">
+                  <div class="card h-100">
+                     <div class="card-img">
+                        <a href="#">
+                           <img class="card-img-top" src="{% static 'images/portfolio-img-05.jpg' %}" alt="" />
+                           <div class="overlay"><i class="fas fa-arrows-alt"></i></div>
+                        </a>
+                     </div>
+                     <div class="card-body">
+                        <h4 class="card-title">
+                           <a href="#">Growing plants</a>
+                        </h4>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-lg-4 col-sm-6 portfolio-item">
+                  <div class="card h-100">
+                     <div class="card-img">
+                        <a href="#">
+                           <img class="card-img-top" src="{% static 'images/portfolio-img-01.jpg' %}" alt="" />
+                           <div class="overlay"><i class="fas fa-arrows-alt"></i></div>
+                        </a>
+                     </div>
+                     <div class="card-body">
+                        <h4 class="card-title">
+                           <a href="#">Snow removal</a>
+                        </h4>
+                     </div>
+                  </div>
+               </div>
+            </div>-->
+            <!-- /.row -->
+        </div>
+        <hr>
+        <!-- Get In Touch Now Section -->
+         <!--<div class="row-md-4">
+            <div class="col-md-8">
+               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, expedita, saepe, vero rerum deleniti beatae veniam harum neque nemo praesentium cum alias asperiores commodi.</p>
+            </div>
+            <div class="col-md-4">
+               <a class="btn btn-lg btn-secondary btn-block" href="#">Get In Touch Now</a>
+            </div>
+        </div>-->
+    </div>
+    <!-- /.container -->
+
+{% endblock %}
+{% include 'footer.html' %}

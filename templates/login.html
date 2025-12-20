@@ -1,0 +1,51 @@
+{% load static %}
+
+{% block content %}
+{% include 'header.html' %}
+
+ <!-- Contact Form -->
+      <!-- In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
+      <div class="row">
+        <div class="col-lg-5 mb-4 contact-left" style="margin-left: 500px;">
+          <h3>Login</h3>
+          <form name="sentMessage" id="contactForm" method="post" action="addlogin" novalidate>
+            {% csrf_token %}
+           
+           
+            <div class="control-group form-group">
+              <div class="controls">
+                <label>Email Address:</label>
+                <input type="email" class="form-control" name="email" id="email" required data-validation-required-message="Please enter your email address.">
+              </div>
+            </div>
+            <div class="control-group form-group">
+              <div class="controls">
+                <label>Password:</label>
+                <input type="password" class="form-control" name="password" id="password" required data-validation-required-message="Please enter your Password.">
+              </div>
+            </div>
+            <div id="success"></div>
+            <!-- For success/fail messages -->
+            <button type="submit" class="btn btn-primary" id="sendMessageButton">Submit</button>
+          </form>
+        </div>
+
+      </div>
+      <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
+{% include 'footer.html' %}
