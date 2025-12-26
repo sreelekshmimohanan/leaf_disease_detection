@@ -1,59 +1,205 @@
 {% block content %}
 {% load static %}
+{% load custom_filters %}
 
 {% include 'header.html' %}
 
- <!--/ Intro Single star /-->
- <section class="intro-single">
+<!-- full Title -->
+<div class="full-title">
     <div class="container">
-      <div class="row">
-        <div class="col-md-12 col-lg-8">
-          <div class="title-single-box">
-            <h1 class="title-single">Result</h1>
-          </div>
-        </div>
-      
-      </div>
+        <!-- Page Heading/Breadcrumbs -->
+        <h1 class="mt-4 mb-3">My Analysis Results
+            <small>View Your Tomato Leaf Disease Detection Results</small>
+        </h1>
     </div>
-  </section>
-  <!--/ Intro Single End /-->
+</div>
 
-    <!--/ Contact Star /-->
-    <section class="contact">
-        <div class="container">
-          <div class="row">
-           
-            <div class="col-sm-12 section-t8">
-              <div class="row">
-                <div class="col-md-12">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Image</th>
-                                <th>Result </th> 
-                            </tr>
-                        </thead>
-                        <tbody>
-                          {% for i in result %}
-                            <tr>
-                             
-                              <td class="price-pr"><img src="media/{{i.image}}" width="200" height="100" alt=""></td> 
-                                <td class="price-pr">{{i.result}}</td>
-                            </tr>
-                            {% endfor %}
-                           
-                        </tbody>
-                    </table>
+<!-- Page Content -->
+<div class="container">
+    <div class="breadcrumb-main">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="/index">Home</a>
+            </li>
+            <li class="breadcrumb-item active">My Results</li>
+        </ol>
+    </div>
 
-
+    <!-- Results Section -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card shadow-sm">
+                <div class="card-header bg-success text-white">
+                    <h4 class="mb-0">
+                        <i class="fas fa-leaf"></i> Tomato Leaf Disease Analysis Results
+                    </h4>
                 </div>
-    
-              </div>
+                <div class="card-body">
+                    {% if result %}
+                        <div class="alert alert-info">
+                            <i class="fas fa-info-circle"></i>
+                            <strong>{{ result|length }}</strong> analysis result{{ result|length|pluralize }} found.
+                        </div>
+
+                        <div class="row">
+                            {% for i in result %}
+                            <div class="col-lg-6 col-md-6 mb-4">
+                                <div class="card h-100 border-success">
+                                    <div class="card-header bg-light">
+                                        <h6 class="mb-0 text-success">
+                                            <i class="fas fa-search"></i> Analysis #{{ forloop.counter }}
+                                        </h6>
+                                    </div>
+                                    <div class="card-body text-center">
+                                        <div class="mb-3">
+                                            <img src="/media/{{i.image}}" class="img-fluid rounded shadow-sm"
+                                                 alt="Tomato Leaf Image" style="max-height: 200px; width: auto;">
+                                        </div>
+                                        <div class="result-box p-3 bg-light rounded">
+                                            <h5 class="text-primary mb-2">
+                                                <i class="fas fa-diagnoses"></i> Diagnosis Result
+                                            </h5>
+                                            <div class="alert alert-{% if i.result == 'Tomato___healthy' %}success{% else %}warning{% endif %} mb-0">
+                                                <strong>{{ i.result|format_disease_name }}</strong>
+                                                <br>
+                                                <small class="text-muted">Status: {{ i.result|disease_status|title }}</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer text-center">
+                                        <small class="text-muted">
+                                            {% if i.result == 'Tomato___healthy' %}
+                                                <i class="fas fa-check-circle text-success"></i> Plant appears healthy
+                                            {% else %}
+                                                <i class="fas fa-exclamation-triangle text-warning"></i> {{ i.result|format_disease_name }} detected
+                                            {% endif %}
+                                        </small>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+
+                        <!-- Summary Statistics -->
+                        <!-- <div class="row mt-4">
+                            <div class="col-lg-12">
+                                <div class="card border-info">
+                                    <div class="card-header bg-info text-white">
+                                        <h6 class="mb-0">
+                                            <i class="fas fa-chart-bar"></i> Analysis Summary
+                                        </h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row text-center">
+                                            <div class="col-md-4">
+                                                <div class="p-3">
+                                                    <h3 class="text-primary">{{ result|length }}</h3>
+                                                    <p class="mb-0">Total Analyses</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="p-3">
+                                                    <h3 class="text-success">
+                                                        {% widthratio result|length 1 1 %}
+                                                    </h3>
+                                                    <p class="mb-0">Images Processed</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="p-3">
+                                                    <h3 class="text-info">
+                                                        {% for i in result %}
+                                                            {% if i.result == 'Tomato___healthy' %}
+                                                                {{ forloop.counter|add:"0" }}
+                                                            {% endif %}
+                                                        {% empty %}
+                                                            0
+                                                        {% endfor %}
+                                                    </h3>
+                                                    <p class="mb-0">Healthy Plants</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+
+                    {% else %}
+                        <!-- Empty State -->
+                        <div class="text-center py-5">
+                            <div class="mb-4">
+                                <i class="fas fa-leaf fa-4x text-muted"></i>
+                            </div>
+                            <h4 class="text-muted mb-3">No Analysis Results Yet</h4>
+                            <p class="text-muted mb-4">
+                                You haven't uploaded any tomato leaf images for analysis yet.
+                                Start by uploading an image to get disease detection results.
+                            </p>
+                            <a href="/fileupload" class="btn btn-success btn-lg">
+                                <i class="fas fa-upload"></i> Upload First Image
+                            </a>
+                        </div>
+                    {% endif %}
+                </div>
             </div>
-          </div>
         </div>
-      </section>
-      <!--/ Contact End /-->
+    </div>
+
+    <!-- Action Buttons -->
+    {% if result %}
+    <div class="row mt-4">
+        <div class="col-lg-12 text-center">
+            <a href="/fileupload" class="btn btn-success btn-lg mr-3">
+                <i class="fas fa-plus"></i> Upload Another Image
+            </a>
+            <a href="/index" class="btn btn-outline-primary btn-lg">
+                <i class="fas fa-home"></i> Back to Home
+            </a>
+        </div>
+    </div>
+    {% endif %}
+
+</div>
+<!-- /.container -->
+
+<style>
+.result-box {
+    border-left: 4px solid #28a745;
+}
+
+.card {
+    transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.alert-success {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
+}
+
+.alert-warning {
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+    color: #856404;
+}
+
+@media (max-width: 768px) {
+    .card-body img {
+        max-height: 150px !important;
+    }
+
+    .btn-lg {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+</style>
 
 {% include 'footer.html' %}
 
