@@ -44,5 +44,5 @@ def predict():
     return label[predicted_class_indices[0]]
 
 # Example of using the predict function
-predicted_class = predict()
-print("Predicted class:", predicted_class)
+#predicted_class = predict()
+#print("Predicted class:", predicted_class)

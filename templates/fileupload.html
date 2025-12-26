@@ -3,39 +3,71 @@
 {% block content %}
 {% include 'header.html' %}
 
- <!-- Contact Form -->
-      <!-- In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
-      <div class="row">
-        <div class="col-lg-8 mb-4 contact-left">
-          <h3>File Upload</h3>
-          <form  id="contactForm" method="post" action="addfile" enctype="multipart/form-data" novalidate>
-            {% csrf_token %}
-            <div class="control-group form-group">
-              <div class="controls">
-                
-                <input type="text" class="form-control" name="name" hidden id="name" required data-validation-required-message="Please enter your name.">
-                <p class="help-block"></p>
-              </div>
-            </div>
-            <div class="control-group form-group">
-              <div class="controls">
-                <label>File Upload</label>
-                <input type="file" class="form-control" name="image" id="image" >
-              </div>
-            </div>
-           
-            
-            <div id="success"></div>
-            <!-- For success/fail messages -->
-            <button type="submit" class="btn btn-primary" id="sendMessageButton">Submit</button>
-          </form>
+<!-- full Title -->
+<div class="full-title">
+    <div class="container">
+        <!-- Page Heading/Breadcrumbs -->
+        <h1 class="mt-4 mb-3">File Upload
+            <small>Upload Tomato Leaf Image for Disease Detection</small>
+        </h1>
+    </div>
+</div>
+
+<!-- Page Content -->
+<div class="container">
+  <div class="breadcrumb-main">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="/index">Home</a>
+            </li>
+            <li class="breadcrumb-item active">File Upload</li>
+        </ol>
+    </div>
+
+    <!-- Content Row -->
+    <div class="row">
+        <!-- Instructions Column -->
+        <div class="col-lg-4 mb-4 contact-right">
+            <h3>Instructions</h3>
+            <p>
+                Upload a clear image of a tomato leaf to detect diseases.
+            </p>
+            <p>
+                <strong>Supported formats:</strong> JPG, PNG, JPEG
+            </p>
+            <p>
+                <strong>Recommended:</strong> High-quality images for better accuracy
+            </p>
+            <p>
+                <strong>Note:</strong> The system will analyze the leaf and provide disease diagnosis.
+            </p>
         </div>
 
-      </div>
-      <!-- /.row -->
+        <!-- Upload Form Column -->
+        <div class="col-lg-8 mb-4 contact-left">
+            <h3>Upload Tomato Leaf Image</h3>
+            <form id="contactForm" method="post" action="/addfile" enctype="multipart/form-data" novalidate>
+                {% csrf_token %}
+                <div class="control-group form-group">
+                    <div class="controls">
+                        <label for="image">Select Image File:</label>
+                        <input type="file" class="form-control" name="image" id="image" accept="image/*" required>
+                        <p class="help-block text-muted">Choose a tomato leaf image for analysis</p>
+                    </div>
+                </div>
 
+                <div id="success"></div>
+                <!-- For success/fail messages -->
+                <button type="submit" class="btn btn-primary" id="sendMessageButton">
+                    <i class="fas fa-upload"></i> Upload & Analyze
+                </button>
+            </form>
+        </div>
     </div>
-    <!-- /.container -->
+    <!-- /.row -->
+
+</div>
+<!-- /.container -->
 
 
 

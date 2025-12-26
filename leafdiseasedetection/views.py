@@ -6,7 +6,7 @@ from  django.core.files.storage import FileSystemStorage
 # SESSION
 from django.conf import settings
 from .models import *
-from ML import test1
+from ML import tomato_predict as predict_module
 import os
 from tensorflow.keras import backend as K
 
@@ -73,7 +73,7 @@ def addfile(request):
         # Clear session before making predictions
         K.clear_session()
 
-        result = test1.predict()
+        result = predict_module.predict()
 
         # Do not clear session again after prediction
         # K.clear_session()
